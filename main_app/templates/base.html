@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Notes</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Hamburger Menu</li>
+                    <ul>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="/campsites">Campsites</a></li>
+                            <ul>
+                                <li><a href="{% url 'index' %}">My Campsites</a></li>
+                                <li><a href="{% url 'campsites_create' %}">Add a Campsite</a></li>
+                            </ul>
+                        <li><a href="/amenities">Amenities</a></li>
+                            <ul>
+                                <li><a href="{% url 'amenities_index' %}">All Amenities</a></li>
+                                <li><a href="{% url 'amenities_create' %}">Add an Amenity</a></li>
+                            </ul>
+                    </ul>
+                <li><a href="{% url 'home' %}">NatureNotes</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                <li><a href="{% url 'login' %}">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>Created by ACS Designs 2023</footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>My Campsites</h1>
+
+{% for campsite in campsites %}
+    <a href="{% url 'detail' campsite.id %}">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ campsite.name }}</span>
+                <p>Location: {{ campsite.location }}</p>
+                <p>Description: {{ campsite.description|linebreaks }}</p>
+                <p>Amenities: {{ campsite.amenities }}</p>
+                <p>Trail: {{ campsite.trail }}</p>
+            </div>
+        </div>
+    </a>
+
+{% endblock %}
