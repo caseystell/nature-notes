@@ -6,34 +6,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nature Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;700&family=Montserrat+Subrayada&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li>Hamburger Menu</li>
+            <ul id="header">
+                <li class="unfold">Hamburger Menu</li>
                     <ul>
                         <li><a href="{% url 'about' %}">About</a></li>
                         {% if user.is_authenticated %}
-                        <li><a href="/campsites">Campsites</a></li>
+                        <li class="unfold"><a href="/campsites">Campsites</a></li>
                             <ul>
                                 <li><a href="{% url 'index' %}">My Campsites</a></li>
                                 <li><a href="{% url 'campsites_create' %}">Add a Campsite</a></li>
                             </ul>
-                        <li><a href="/amenities">Amenities</a></li>
+                        <li class="unfold"><a href="/amenities">Amenities</a></li>
                             <ul>
                                 <li><a href="{% url 'index' %}">All Amenities</a></li>
                                 <li><a href="{% url 'campsites_create' %}">Add an Amenity</a></li>
                             </ul>
                         {% endif %}
                     </ul>
-                <li><a href="{% url 'home' %}">NatureNotes</a></li>
+                <li id="title-logo"><a href="{% url 'home' %}">NatureNotes</a></li>
             {% if not user.is_authenticated %}
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Log In</a></li>
+                <li class="btn"><a href="{% url 'signup' %}">Sign Up</a></li>
+                <li class="login"><a href="{% url 'login' %}">Log In</a></li>
             {% else %}
-                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                <li class="login"><a href="{% url 'logout' %}">Log Out</a></li>
             {% endif %}
             </ul>
         </nav>

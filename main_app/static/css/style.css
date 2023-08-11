@@ -1,3 +1,69 @@
 body {
     height: 100vh;
+    color: #575757;
+    font-family: 'Khula', sans-serif;
+    margin: 0;
+    font-size: 1rem;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: #575757;
+}
+
+a:hover, .btn:hover, .login:hover {
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#header {
+    display: flex;
+    justify-content: space-around;
+}
+
+#title-logo {
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size: 3rem;
+}
+
+.btn, .login, .btn:visited, .login:visited {
+    border-radius: 20%;
+    color: white;
+    font-family: 'Khula', sans-serif;
+    padding: 0.5rem;
+    border: none;
+}
+
+.btn {
+    background-color: #47C67A;
+}
+
+.login {
+    background-color: #BDD6EB;
+}
+
+.detail {
+    background-color: #BDD6EB;
+    margin: 1rem 0 3rem 0;
+    padding: 1rem 3rem 3rem 3rem;
+}
+
+.home-page {
+    position: relative;
+}
+
+.home-btn {
+    position: absolute;
+    text-align: center;
+    color: #575757;
+    left: 50%;
+    font-weight: lighter;
+    top: 57%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: 3rem;
+    font-size: 1.5rem;
 }
