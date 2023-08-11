@@ -7,13 +7,11 @@
     <a href="{% url 'detail' campsite.id %}">
         <div class="card">
             <div class="card-content">
-                <span class="card-title">{{ campsite.name }}</span>
-                <p>Location: {{ campsite.location }}</p>
-                <p>Description: {{ campsite.description|linebreaks }}</p>
-                <p>Amenities: {{ campsite.amenities }}</p>
-                <p>Trail: {{ campsite.trail }}</p>
+                <p><span class="card-title">{{ campsite.name }}</span> | {{ campsite.location }}</p>
+                <p>{{ campsite.description|linebreaks }}</p>
             </div>
         </div>
     </a>
+{% endfor %}
 
 {% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ campsite.name }} Details</h1>
+
+<div class="row">
+    <div class="col s6">
+        <div>
+        {% for photo in campsite.photo_set.all %}
+            <img class="responsive-img card-panel" src="{{photo.url}}">
+            {% empty %}
+                <div class="card-panel center-align">No Photos Uploaded</div>
+            {% endfor %}
+            <form action="{% url 'add_photo' campsite.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+                {% csrf_token %}
+                <input type="file" name="photo-file">
+                <br><br>
+                <button type="submit" class="btn">Upload Photo</button>
+            </form>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <p>{{ campsite.location }}</p>
+                <p>{{ campsite.description }}</p>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'campsites_update' campsite.id %}">Edit</a>
+                <a href="{% url 'campsites_delete' campsite.id %}">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div class="col s6">
+        {% for trail in campsite.trail_set.all %}
+            <p>{{ trail.name }} | {{ trail.length }}</p>
+            <p>{{ trail.description }}</p>
+        {% endfor %}
+        <form action="{% url 'add_trail' campsite.id %}" method="POST">
+            {% csrf_token %}
+            {{ trail_form.as_p }}
+            <input type="submit" class="btn" value="Add a Trail">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

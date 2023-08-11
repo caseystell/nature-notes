@@ -15,6 +15,7 @@
                 <li>Hamburger Menu</li>
                     <ul>
                         <li><a href="{% url 'about' %}">About</a></li>
+                        {% if user.is_authenticated %}
                         <li><a href="/campsites">Campsites</a></li>
                             <ul>
                                 <li><a href="{% url 'index' %}">My Campsites</a></li>
@@ -22,13 +23,18 @@
                             </ul>
                         <li><a href="/amenities">Amenities</a></li>
                             <ul>
-                                <li><a href="{% url 'amenities_index' %}">All Amenities</a></li>
-                                <li><a href="{% url 'amenities_create' %}">Add an Amenity</a></li>
+                                <li><a href="{% url 'index' %}">All Amenities</a></li>
+                                <li><a href="{% url 'campsites_create' %}">Add an Amenity</a></li>
                             </ul>
+                        {% endif %}
                     </ul>
                 <li><a href="{% url 'home' %}">NatureNotes</a></li>
+            {% if not user.is_authenticated %}
                 <li><a href="{% url 'signup' %}">Sign Up</a></li>
                 <li><a href="{% url 'login' %}">Log In</a></li>
+            {% else %}
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% endif %}
             </ul>
         </nav>
     </header>
