@@ -34,7 +34,7 @@ class Trail(models.Model):
     campsite = models.ForeignKey(Campsite, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.id} @ {self.campsite}'
+        return f'{self.get_trail_display()} @ {self.campsite}'
 
 
 class Photo(models.Model):
