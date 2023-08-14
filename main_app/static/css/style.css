@@ -13,6 +13,7 @@ a, a:visited {
 
 a:hover, .btn:hover, .login:hover {
     cursor: pointer;
+    text-decoration: underline;
 }
 
 ul {
@@ -25,8 +26,8 @@ ul {
 }
 
 #title-logo {
-    font-family: 'Montserrat Subrayada', sans-serif;
     font-size: 3rem;
+    text-decoration: none !important;
 }
 
 .btn, .login, .btn:visited, .login:visited {
@@ -35,6 +36,8 @@ ul {
     font-family: 'Khula', sans-serif;
     padding: 0.5rem;
     border: none;
+    width: fit-content;
+    height: fit-content;
 }
 
 .btn {
@@ -51,7 +54,7 @@ ul {
     padding: 1rem 3rem 3rem 3rem;
 }
 
-.home-page {
+#home-page, #index {
     position: relative;
 }
 
@@ -64,6 +67,62 @@ ul {
     top: 57%;
     transform: translate(-50%, -50%);
     width: fit-content;
-    height: 3rem;
+    height: fit-content;
     font-size: 1.5rem;
+}
+
+#footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 12px;
+    background-color: #47C67A;
+    color: white;
+    margin-top: 1rem;
+}
+
+#about {
+    text-align: center;
+    margin: 5rem 5rem 0 5rem;
+    padding: 1rem;
+}
+
+#about > h3, #about > p {
+    padding: 1rem;
+    margin: 1rem 2rem;
+    font-size: 1.25rem;
+}
+
+#about > h3 {
+    font-size: 1.75rem;
+    color: #47C67A;
+}
+
+.logo  {
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+.text {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    background-color: #BDD6EB;
+    border-radius: 20%;
+    width: fit-content;
+    height: fit-content;
+    text-align: left;
+    padding: 1rem;
+}
+
+.card-title {
+    font-weight: bolder;
+}
+
+.description {
+    font-size: 0.75rem;
 }

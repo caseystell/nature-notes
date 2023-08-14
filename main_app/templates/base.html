@@ -31,7 +31,7 @@
                             </ul>
                         {% endif %}
                     </ul>
-                <li id="title-logo"><a href="{% url 'home' %}">NatureNotes</a></li>
+                <li id="title-logo" class="logo"><a href="{% url 'home' %}">NatureNotes</a></li>
             {% if not user.is_authenticated %}
                 <li class="btn"><a href="{% url 'signup' %}">Sign Up</a></li>
                 <li class="login"><a href="{% url 'login' %}">Log In</a></li>
@@ -45,6 +45,6 @@
         {% block content %}
         {% endblock %}
     </main>
-    <footer>Created by ACS Designs 2023</footer>
+    <footer id="footer">Created by ACS Designs 2023</footer>
 </body>
 </html>

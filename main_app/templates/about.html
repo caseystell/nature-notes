@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>About</h1>
+{% load static %}
+
+<div id="about">
+    <h1>About <span class="logo">NatureNotes</span></h1>
+
+    <h3>Getting outdoors doesn't have to be a chore!</h3>
+    <p>NatureNotes gives you a way to keep track of and save all your favorite camping spots, along with trails near those campsites and amenities offered at each site.</p>
+    <p>That way, you can get outside on a whim and revisit your favorite places over and over without all the head-scratching of trying to remember where it was that you liked!</p>
+</div>
+
+<img src="{% static 'images/jesse-gardner-wTVr4HR4SBI-unsplash.jpg' %}" alt="Orange tent with mountains" style="height: 80%; width: 100%";/>
 
 {% endblock %}
