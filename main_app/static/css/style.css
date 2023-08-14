@@ -126,3 +126,22 @@ ul {
 .description {
     font-size: 0.75rem;
 }
+
+#login-form, #signup-form {
+    margin: 2rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+#signup-form p {
+    text-align: left;
+    margin-left: 32%;
+}
+
+.helptext {
+    visibility: hidden;
+}
+
+#signup-form ul li {
+    visibility: hidden;
+}
