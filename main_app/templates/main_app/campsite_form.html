@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% if object %}
-  <h1>Edit <span>{{ object.name }}</span></h1>
-{% else %}
-  <h1>Add Campsite</h1>
-{% endif %}
+<div class="edit-add-form">
 
-<form action="" method="POST">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <input type="submit" value="Submit!" class="btn">
-</form>
+  {% if object %}
+    <h1>Edit <span>{{ object.name }}</span></h1>
+  {% else %}
+    <h1>Add Campsite</h1>
+  {% endif %}
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit!" class="btn">
+  </form>
+
+</div>
 
 {% endblock %}

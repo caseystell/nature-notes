@@ -11,11 +11,6 @@ a, a:visited {
     color: #575757;
 }
 
-a:hover, .btn:hover, .login:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
 ul {
     list-style-type: none;
 }
@@ -34,26 +29,47 @@ ul {
     border-radius: 20%;
     color: white;
     font-family: 'Khula', sans-serif;
-    padding: 0.5rem;
+    padding: 0.5rem !important;
     border: none;
-    width: fit-content;
-    height: fit-content;
+    width: fit-content !important;
+    height: fit-content !important;
 }
 
 .btn {
-    background-color: #47C67A;
+    background-color: #47C67A !important;
+}
+
+a:hover, .btn:hover, .login:hover {
+    cursor: pointer;
+    text-decoration: underline !important;
 }
 
 .login {
     background-color: #BDD6EB;
 }
 
-.detail {
+.detail, .delete-form, .edit-add-form, .amenity-detail, #login-form, #signup-form {
     background-color: #BDD6EB;
     margin: 1rem 0 3rem 0;
     padding: 1rem 3rem 3rem 3rem;
+}
+
+.amenity-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-add-form td > input, #login-form p > input, #signup-form p > input {
+    border: none;
+    border-radius: 20%;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    width: 15rem;
+}
+
+.detail {
     display: grid;
-    grid-template-columns: 50% 25% 25%;
+    grid-template-columns: 60% 20% 20%;
     grid-template-rows: 15% 35% 50%;
 }
 
@@ -62,24 +78,67 @@ ul {
     grid-row: 1 / span 1;
 }
 
+.amenities > span, .add-amenities > span, .amenity-detail > span {
+    border-radius: 20%;
+    padding: 0.5rem;
+    margin: 0.3rem;
+    width: fit-content;
+    height: fit-content;
+}
+
+.amenities > span {
+    background-color: #E9E9E9;
+}
+
+.add-amenities > span, .amenity-detail > span {
+    background-color: white;
+}
+
+.amenities button, .add-amenities button, .amenity-detail a {
+    color: #575757;
+    border: none;
+}
+
+.amenity-detail a {
+    padding: 1px 6px;
+}
+
+.amenities button {
+    background-color: #E9E9E9;
+}
+
+.add-amenities button {
+    background-color: white;
+}
+
+.amenities button:hover, .add-amenities button:hover, .amenity-detail a:hover {
+    cursor: pointer;
+    background-color: #575757;
+    border-radius: 20%;
+}
+
+.amenities button:hover {
+    color: #E9E9E9;
+}
+
+.add-amenities button:hover, .amenity-detail a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.amenities, .add-amenities {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.amenities > h3, .add-amenities > h3 {
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+}
+
 #detail-card {
-    grid-column: 1 / span 1;
-    grid-row: 2 / span1
-}
-
-.trail > form > input, .trail > form > p {
-    grid-column: 2 / span 2;
-    grid-row: 2 / span 1;
-}
-
-.add-amenities span {
-    grid-column: 2 / span 2;
-    grid-row: 3 / span 1;
-}
-
-.amenities span {
-    grid-column: 1 / span 1;
-    grid-row: 3 / span 1;
+    text-align: right;
 }
 
 #home-page, #index {
@@ -159,6 +218,10 @@ ul {
     margin: 2rem;
     padding: 1rem;
     text-align: center;
+}
+
+#login-form p > a, #signup-form p > a {
+    color: #47C67A;
 }
 
 #signup-form p {

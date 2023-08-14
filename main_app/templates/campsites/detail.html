@@ -47,7 +47,7 @@
             <span>{{ amenity.name }}
                 <form action="{% url 'remove_amenity' campsite.id amenity.id %}" method="POST" style="display:inline-block">
                     {% csrf_token %}
-                    <button type="submit" class="btn">X</button>
+                    <button type="submit">x</button>
                 </form>
             </span>
         {% endfor %}
@@ -69,6 +69,7 @@
         {% else %}
           <h5>{{campsite.name}} Already Has All Available Amenities</h5>
         {% endif %}
+        
     </div>
 </div>
 {% endblock %}
