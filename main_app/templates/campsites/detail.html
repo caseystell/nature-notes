@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col s6">
-            <div class="photo">
+            {% comment %} <div class="photo">
                 {% for photo in campsite.photo_set.all %}
                     <img class="responsive-img card-panel" src="{{photo.url}}">
                 {% empty %}
@@ -18,7 +18,7 @@
                     <br><br>
                     <button type="submit" class="btn">Upload Photo</button>
                 </form>
-            </div>
+            </div> {% endcomment %}
             <div class="card">
                 <div class="card-content">
                     <p>{{ campsite.location }}</p>
@@ -41,7 +41,52 @@
                 <input type="submit" class="btn" value="Add a Trail">
             </form>
         </div>
+        {% comment %} <a href="{% url 'add_amenitity' campsite.id %}">Add Amenity</a> {% endcomment %}
+
     </div>
 </div>
-
+<div>
+    <div>
+      <h3>{{ campsite.name }} Amenities</h3>
+      {% if campsite.amenities.count %}
+        {% for amenity in campsite.amenities.all %}
+          <div>
+            <div>
+              <span>
+                <span>{{ amenity.name }}  </span>
+            </div>
+            <div class="card-action">
+              <form action="{% url 'remove_amenity' campsite.id amenity.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn">Remove</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <h5>No Amenities</h5>
+      {% endif %}
+    </div>
+    <div>
+        <h3>Available Amenities</h3>
+        {% if amenities.count %}
+          {% for amenity in amenities.all %}
+            <div>
+              <div>
+                <span>
+                  A {{ amenity.name }}
+                </span>
+              </div>
+              <div>
+                <form action="{% url 'add_amenity' campsite.id amenity.id %}" method="POST">
+                  {% csrf_token %}
+                  <button type="submit">Add</button>
+                </form>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <h5>{{campsite.name}} Already Has All Amenities Available</h5>
+        {% endif %}
+      </div>
 {% endblock %}
