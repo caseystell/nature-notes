@@ -20,7 +20,7 @@ ul {
     list-style-type: none;
 }
 
-#header {
+#header-bar {
     display: flex;
     justify-content: space-around;
 }
@@ -52,6 +52,34 @@ ul {
     background-color: #BDD6EB;
     margin: 1rem 0 3rem 0;
     padding: 1rem 3rem 3rem 3rem;
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: 15% 35% 50%;
+}
+
+.detail > h1 {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 1;
+}
+
+#detail-card {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span1
+}
+
+.trail > form > input, .trail > form > p {
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 1;
+}
+
+.add-amenities span {
+    grid-column: 2 / span 2;
+    grid-row: 3 / span 1;
+}
+
+.amenities span {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
 }
 
 #home-page, #index {

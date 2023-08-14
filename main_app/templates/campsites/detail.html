@@ -2,10 +2,10 @@
 {% block content %}
 
 <div class="detail">
-    <h1>{{ campsite.name }} Details</h1>
+    <h1 id="detail-header">{{ campsite.name }} Details</h1>
 
     <div class="row">
-        <div class="col s6">
+        <div class="campsite-info">
             {% comment %} <div class="photo">
                 {% for photo in campsite.photo_set.all %}
                     <img class="responsive-img card-panel" src="{{photo.url}}">
@@ -19,18 +19,14 @@
                     <button type="submit" class="btn">Upload Photo</button>
                 </form>
             </div> {% endcomment %}
-            <div class="card">
-                <div class="card-content">
-                    <p>{{ campsite.location }}</p>
-                    <p>{{ campsite.description }}</p>
-                </div>
-                <div class="card-action">
-                    <a class="btn" href="{% url 'campsites_update' campsite.id %}">Edit</a>
-                    <a class="btn" href="{% url 'campsites_delete' campsite.id %}">Delete</a>
-                </div>
+            <div class="card" id="detail-card">
+                <p>{{ campsite.location }}</p>
+                <p>{{ campsite.description }}</p>
+                <a class="btn" href="{% url 'campsites_update' campsite.id %}">Edit</a>
+                <a class="btn" href="{% url 'campsites_delete' campsite.id %}">Delete</a>
             </div>
         </div>
-        <div class="col s6">
+        <div class="trail">
             {% for trail in campsite.trail_set.all %}
                 <p>{{ trail.name }} | {{ trail.length }}</p>
                 <p>{{ trail.description }}</p>
@@ -44,49 +40,35 @@
         {% comment %} <a href="{% url 'add_amenitity' campsite.id %}">Add Amenity</a> {% endcomment %}
 
     </div>
-</div>
-<div>
-    <div>
-      <h3>{{ campsite.name }} Amenities</h3>
+    <div class="amenities">
+      <h3>Amenities</h3>
       {% if campsite.amenities.count %}
         {% for amenity in campsite.amenities.all %}
-          <div>
-            <div>
-              <span>
-                <span>{{ amenity.name }}  </span>
-            </div>
-            <div class="card-action">
-              <form action="{% url 'remove_amenity' campsite.id amenity.id %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn">Remove</button>
-              </form>
-            </div>
-          </div>
+            <span>{{ amenity.name }}
+                <form action="{% url 'remove_amenity' campsite.id amenity.id %}" method="POST" style="display:inline-block">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">X</button>
+                </form>
+            </span>
         {% endfor %}
       {% else %}
         <h5>No Amenities</h5>
       {% endif %}
     </div>
-    <div>
-        <h3>Available Amenities</h3>
+    <div class="add-amenities">
+        <h3>Add Amenities</h3>
         {% if amenities.count %}
           {% for amenity in amenities.all %}
-            <div>
-              <div>
-                <span>
-                  A {{ amenity.name }}
-                </span>
-              </div>
-              <div>
-                <form action="{% url 'add_amenity' campsite.id amenity.id %}" method="POST">
-                  {% csrf_token %}
-                  <button type="submit">Add</button>
+            <span class="amenity-btn">{{ amenity.name }}
+                <form action="{% url 'add_amenity' campsite.id amenity.id %}" method="POST" style="display:inline-block">
+                    {% csrf_token %}
+                    <button type="submit">+</button>
                 </form>
-              </div>
-            </div>
+            </span>
           {% endfor %}
         {% else %}
-          <h5>{{campsite.name}} Already Has All Amenities Available</h5>
+          <h5>{{campsite.name}} Already Has All Available Amenities</h5>
         {% endif %}
-      </div>
+    </div>
+</div>
 {% endblock %}
