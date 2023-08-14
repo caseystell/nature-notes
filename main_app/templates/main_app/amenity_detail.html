@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Amenity Details</h1>
+
+<div >
+  <div>
+    <div>
+      <div>
+        <span>{{ amenity.name }}</span>
+      </div>
+      <div>
+        <a href="{% url 'amenities_update' amenity.id %}">Edit</a>
+        <a href="{% url 'amenities_delete' amenity.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
