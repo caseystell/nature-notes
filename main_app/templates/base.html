@@ -11,34 +11,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;700&family=Montserrat+Subrayada&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
+<h1 id="title-logo" class="logo"><a href="{% url 'home' %}">NatureNotes</a></h1>
 <body>
     <header>
         <nav>
-            <ul id="header-bar">
-                <li class="unfold">Hamburger Menu</li>
-                    <ul>
-                        <li><a href="{% url 'about' %}">About</a></li>
+                <label class="hamburger-menu">
+                    <input type="checkbox">
+                </label>
+                    <aside class="sidebar">
+                        <div><a href="{% url 'about' %}">About</a></div>
                         {% if user.is_authenticated %}
-                        <li class="unfold"><a href="/campsites">Campsites</a></li>
-                            <ul>
-                                <li><a href="{% url 'index' %}">My Campsites</a></li>
-                                <li><a href="{% url 'campsites_create' %}">Add a Campsite</a></li>
-                            </ul>
-                        <li class="unfold"><a href="/amenities">Amenities</a></li>
-                            <ul>
-                                <li><a href="{% url 'amenities_index' %}">All Amenities</a></li>
-                                <li><a href="{% url 'amenities_create' %}">Add an Amenity</a></li>
-                            </ul>
+                        <div class="unfold"><a href="/campsites">Campsites</a></div>
+
+                                <div><a href="{% url 'index' %}">My Campsites</a></div>
+                                <div><a href="{% url 'campsites_create' %}">Add a Campsite</a></div>
+
+                        <div class="unfold"><a href="/amenities">Amenities</a></div>
+
+                                <div><a href="{% url 'amenities_index' %}">All Amenities</a></div>
+                                <div><a href="{% url 'amenities_create' %}">Add an Amenity</a></div>
+
                         {% endif %}
-                    </ul>
-                <li id="title-logo" class="logo"><a href="{% url 'home' %}">NatureNotes</a></li>
+                        </aside>
             {% if not user.is_authenticated %}
-                <li class="btn"><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li class="login"><a href="{% url 'login' %}">Log In</a></li>
+                <div class="btn"><a href="{% url 'signup' %}">Sign Up</a></div>
+                <div class="login"><a href="{% url 'login' %}">Log In</a></div>
             {% else %}
-                <li class="login"><a href="{% url 'logout' %}">Log Out</a></li>
+                <div class="login"><a href="{% url 'logout' %}">Log Out</a></div>
             {% endif %}
-            </ul>
+
         </nav>
     </header>
     <main>
