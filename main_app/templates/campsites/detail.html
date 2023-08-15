@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% load static %}
+
 <div class="detail">
     <h1 id="detail-header">{{ campsite.name }} Details</h1>
 
     <div class="row">
         <div class="campsite-info">
-            {% comment %} <div class="photo">
+            <div class="photo">
                 {% for photo in campsite.photo_set.all %}
-                    <img class="responsive-img card-panel" src="{{photo.url}}">
+                    <img id="user-campsite-photo" src="{{photo.url}}">
                 {% empty %}
-                    <div class="card-panel center-align">No Photos Uploaded</div>
+                    <img src="{% static 'images/take-more-photos.png' %}" style="width:12rem; height:10rem;">
+                    <form action="{% url 'add_photo' campsite.id %}" enctype="multipart/form-data" method="POST">
+                        {% csrf_token %}
+                        <input type="file" name="photo-file">
+                        <br><br>
+                        <button type="submit" class="btn">Upload Photo</button>
+                    </form>
                 {% endfor %}
-                <form action="{% url 'add_photo' campsite.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-                    {% csrf_token %}
-                    <input type="file" name="photo-file">
-                    <br><br>
-                    <button type="submit" class="btn">Upload Photo</button>
-                </form>
-            </div> {% endcomment %}
+            </div>
             <div class="card" id="detail-card">
                 <p>{{ campsite.location }}</p>
                 <p>{{ campsite.description }}</p>

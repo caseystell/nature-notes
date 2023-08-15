@@ -20,7 +20,7 @@ def about(request):
     return render(request, 'about.html')
 
 
-# @login_required
+@login_required
 def campsites_index(request):
     campsites = Campsite.objects.filter(user=request.user)
     return render(request, 'campsites/index.html', 
@@ -28,7 +28,7 @@ def campsites_index(request):
     })
 
 
-# @login_required
+@login_required
 def campsites_detail(request, campsite_id):
     campsite = Campsite.objects.get(id=campsite_id)
     id_list = campsite.amenities.all().values_list('id')
@@ -39,7 +39,7 @@ def campsites_detail(request, campsite_id):
     })
 
 
-class CampsiteCreate(CreateView):
+class CampsiteCreate(LoginRequiredMixin, CreateView):
     model = Campsite
     fields = ['name', 'location', 'description']
 
@@ -48,17 +48,17 @@ class CampsiteCreate(CreateView):
         return super().form_valid(form)
 
 
-class CampsiteUpdate(UpdateView):
+class CampsiteUpdate(LoginRequiredMixin, UpdateView):
     model = Campsite
     fields = ['location', 'description']
 
 
-class CampsiteDelete(DeleteView):
+class CampsiteDelete(LoginRequiredMixin, DeleteView):
     model = Campsite
     success_url = '/campsites'
 
 
-# @login_required
+@login_required
 def add_trail(request, campsite_id):
     form = TrailForm(request.POST)
     if form.is_valid():
@@ -68,32 +68,34 @@ def add_trail(request, campsite_id):
     return redirect('detail', campsite_id=campsite_id)
 
 
-class AmenityList(ListView):
+class AmenityList(LoginRequiredMixin, ListView):
    model = Amenity
 
 
-class AmenityCreate(CreateView):
+class AmenityCreate(LoginRequiredMixin, CreateView):
    model = Amenity
    fields = '__all__'
    success_url = '/amenities'
 
 
-class AmenityDelete(DeleteView):
+class AmenityDelete(LoginRequiredMixin, DeleteView):
    model= Amenity
    success_url = '/amenities'
 
 
+@login_required
 def add_amenity(request, campsite_id, amenity_id):
    Campsite.objects.get(id=campsite_id).amenities.add(amenity_id)
    return redirect('detail', campsite_id=campsite_id)
 
 
+@login_required
 def remove_amenity(request, campsite_id, amenity_id):
    Campsite.objects.get(id=campsite_id).amenities.remove(amenity_id)
    return redirect('detail', campsite_id=campsite_id)
    
 
-# @login_required
+@login_required
 def add_photo(request, campsite_id):
   photo_file = request.FILES.get('photo-file', None)
   if photo_file:

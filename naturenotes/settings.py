@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
+# import dj_database_url
 import environ
 import os
 
@@ -89,23 +89,25 @@ WSGI_APPLICATION = 'naturenotes.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'naturenotes',
-#     }
-# }
-
+# Use this for localhost:8000
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'neondb',
-    'USER': 'caseystell',
-    'PASSWORD': 'en7uZCp8MUzQ',
-    'HOST': 'ep-throbbing-thunder-60941097.us-west-2.aws.neon.tech',
-    'PORT': '5432',
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'naturenotes',
+    }
 }
+
+#Use this for Render
+# DATABASES = {
+#   'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': 'neondb',
+#     'USER': 'caseystell',
+#     'PASSWORD': 'en7uZCp8MUzQ',
+#     'HOST': 'ep-throbbing-thunder-60941097.us-west-2.aws.neon.tech',
+#     'PORT': '5432',
+#   }
+# }
 
 
 # Password validation

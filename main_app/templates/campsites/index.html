@@ -12,9 +12,15 @@
         {% for campsite in campsites %}
             <a href="{% url 'detail' campsite.id %}">
                 <div class="card" id="index-card">
-                    <p class="photo"></p>
+                    <p id="index-photo">
+                        {% for photo in campsite.photo_set.all %}
+                            <img src="{{photo.url}}">
+                        {% empty %}
+                            <div>No Photos Uploaded</div>
+                        {% endfor %}
+                    </p>
                     <p><span class="card-title">{{ campsite.name }}</span> | {{ campsite.location }}</p>
-                    <p class="description">{{ campsite.description|linebreaks }}</p>
+                    <p class="description">{{ campsite.description }}</p>
                 </div>
             </a>
         {% endfor %}
