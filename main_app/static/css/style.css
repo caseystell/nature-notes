@@ -1,12 +1,10 @@
 body {
     height: 100vh;
-    /* color: #575757; */
+    color: #575757;
     font-family: 'Khula', sans-serif;
     margin: 0;
     font-size: 1rem;
     box-sizing: border-box;
-    background: url(../images/alex-shutin-kKvQJ6rK6S4-unsplash.jpg) no-repeat center center fixed;
-    background-size: 100% 100%;
 }
 
 .container{
@@ -26,7 +24,6 @@ body {
 
 .hamburger-menu{
     --x-width: calc(var(--hamburger-height) * 1.41421356237);
-
     display: flex;
     flex-direction: column;
     gap: var(--hamburger-gap);
@@ -100,20 +97,11 @@ a, a:visited {
     color: #575757;
 }
 
-ul {
-    list-style-type: none;
-}
-
-#header-bar {
-    display: flex;
-    justify-content: space-around;
-}
-
 #title-logo {
     font-size: 3rem;
-    text-decoration: none !important;
+    text-decoration: none;
     text-align: center;
-
+    margin-left: 2rem;
 }
 
 .btn, .login, .btn:visited, .login:visited {
@@ -132,7 +120,11 @@ ul {
 
 a:hover, .btn:hover, .login:hover {
     cursor: pointer;
-    text-decoration: underline !important;
+    text-decoration: underline;
+}
+
+#title-logo:hover {
+    text-decoration: none !important;
 }
 
 .login {
@@ -168,13 +160,13 @@ a:hover, .btn:hover, .login:hover {
 
 .detail {
     display: grid;
-    grid-template-columns: 60% 20% 20%;
+    grid-template-columns: 20% 40% 20% 20%;
     grid-template-rows: 15% 35% 50%;
 }
 
 .detail > h1 {
-    grid-column: 1 / span 3;
-    grid-row: 1 / span 1;
+    grid-column: 1 / span 4;
+    grid-row: 1;
 }
 
 .amenities > span, .add-amenities > span, .amenity-detail > span {
@@ -226,10 +218,19 @@ a:hover, .btn:hover, .login:hover {
 }
 
 .amenities, .add-amenities {
+    grid-row: 2 / span 2;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-end;
     flex-wrap: nowrap;
+}
+
+.amenities {
+    grid-column: 3;
+}
+
+.add-amenities {
+    grid-column: 4;
 }
 
 .amenities > h3, .add-amenities > h3 {
@@ -237,8 +238,22 @@ a:hover, .btn:hover, .login:hover {
     margin-bottom: 0;
 }
 
+.amenities > h5, .add-amenities > h5 {
+    text-align: right;
+}
+
+.trail {
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 2;
+}
+
 #detail-card {
     text-align: right;
+}
+
+.campsite-info {
+    grid-column: 1 / span 2;
+    grid-row: 2;
 }
 
 #home-page, #index {
@@ -250,6 +265,7 @@ a:hover, .btn:hover, .login:hover {
     text-align: center;
     color: #575757;
     left: 50%;
+    top: 60%;
     font-weight: lighter;
     transform: translate(-50%, -50%);
     width: fit-content;
@@ -259,18 +275,16 @@ a:hover, .btn:hover, .login:hover {
 
 #footer {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     font-size: 12px;
     background-color: #47C67A;
     color: white;
-    padding-top: 1rem;
-    margin-top: 45%;
+    padding: 0.25rem;
 }
 
 #about {
     text-align: center;
-    /* margin: 5rem 5rem 0 5rem; */
     padding: 1rem;
     background: #C3D5E3;
 }
@@ -327,9 +341,10 @@ a:hover, .btn:hover, .login:hover {
 
 .detail > a {
     text-align: right;
-    grid-column: 3 / span 1;
+    grid-column: 4 / span 1;
     grid-row: -2 / span 1;
     align-self: end;
+    margin-top: 1.5rem;
 }
 
 #signup-form p {
@@ -348,6 +363,7 @@ a:hover, .btn:hover, .login:hover {
 .photo {
     height: 100%;
     width: 12rem;
+    margin: 0;
 }
 
 #index-card {
@@ -362,12 +378,11 @@ a:hover, .btn:hover, .login:hover {
     border-radius: 15%;
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
-    margin-bottom: 0;
-    padding-right: 10px;
 }
 
-#user-campsite-photo {
+#user-campsite-photo, #placeholder-photo {
     width: 14rem;
     max-width: 100%;
     border-radius: 15px;
+    margin: 0;
 }
