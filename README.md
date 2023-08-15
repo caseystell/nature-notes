@@ -1,4 +1,4 @@
-# nature-notes
+# Nature-Notes
 NatureNotes is a collaborative project developed by a team of three outdoor enthusiasts. Our website is designed to make your camping experience more enjoyable and organized. Whether you're an avid camper or just starting out, NatureNotes offers a user-friendly platform to create and manage your personalized list of campsites completed with amenities and nearby hiking trails.
 
 
@@ -18,11 +18,17 @@ Explore Nearby Trails: Discover nature by exploring nearby trails associated wit
 Technologies Used:
 
 Front-End: HTML, CSS, JavaScript
+
 Back-End: Python, Django
+
 Database: PostgreSQL
+
 Authentication: Django Allauth
+
 ORM: Django ORM
+
 Version Control: Git, GitHub
+
 Deployment: Neon, Render, AWS
 
 Getting Started:
