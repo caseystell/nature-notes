@@ -32,7 +32,6 @@
             <h2>Nearby Trails</h2>
             {% for trail in campsite.trail_set.all %}
                 <p>{{ trail.name }} | {{ trail.length }}</p>
-                <p>{{ trail.description }}</p>
             {% endfor %}
             <form action="{% url 'add_trail' campsite.id %}" method="POST">
                 {% csrf_token %}

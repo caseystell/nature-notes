@@ -30,7 +30,6 @@ class Campsite(models.Model):
 class Trail(models.Model):
     name = models.CharField(max_length=100)
     length = models.CharField(max_length=50)
-    description = models.CharField(max_length=200)
     campsite = models.ForeignKey(Campsite, on_delete=models.CASCADE)
 
     def __str__(self):
