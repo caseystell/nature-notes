@@ -6,43 +6,40 @@
 <div class="detail">
     <h1 id="detail-header">{{ campsite.name }} Details</h1>
 
-    <div class="row">
-        <div class="campsite-info">
-            <div class="photo">
-                {% for photo in campsite.photo_set.all %}
-                    <img id="user-campsite-photo" src="{{photo.url}}">
-                {% empty %}
-                    <img src="{% static 'images/take-more-photos.png' %}" style="width:12rem; height:10rem;">
-                    <form action="{% url 'add_photo' campsite.id %}" enctype="multipart/form-data" method="POST">
-                        {% csrf_token %}
-                        <input type="file" name="photo-file">
-                        <br><br>
-                        <button type="submit" class="btn">Upload Photo</button>
-                    </form>
-                {% endfor %}
-            </div>
-            <div class="card" id="detail-card">
-                <p>{{ campsite.location }}</p>
-                <p>{{ campsite.description }}</p>
-                <a class="btn" href="{% url 'campsites_update' campsite.id %}">Edit</a>
-                <a class="btn" href="{% url 'campsites_delete' campsite.id %}">Delete</a>
-            </div>
-        </div>
-        <div class="trail">
-            <h2>Nearby Trails</h2>
-            {% for trail in campsite.trail_set.all %}
-                <p>{{ trail.name }} | {{ trail.length }}</p>
-                <p>{{ trail.description }}</p>
+    <div class="campsite-info">
+        <div class="photo">
+            {% for photo in campsite.photo_set.all %}
+                <img id="user-campsite-photo" src="{{photo.url}}">
+            {% empty %}
+                <img id="placeholder-photo" src="{% static 'images/take-more-photos.png' %}" style="width:12rem; height:10rem;">
+                <form action="{% url 'add_photo' campsite.id %}" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    <input type="file" name="photo-file">
+                    <br><br>
+                    <button type="submit" class="btn">Upload Photo</button>
+                </form>
             {% endfor %}
-            <form action="{% url 'add_trail' campsite.id %}" method="POST">
-                {% csrf_token %}
-                {{ trail_form.as_p }}
-                <input type="submit" class="btn" value="Add a Trail">
-            </form>
         </div>
-        {% comment %} <a href="{% url 'add_amenitity' campsite.id %}">Add Amenity</a> {% endcomment %}
-
+        <div class="card" id="detail-card">
+            <p>{{ campsite.location }}</p>
+            <p>{{ campsite.description }}</p>
+            <a class="btn" href="{% url 'campsites_update' campsite.id %}">Edit</a>
+            <a class="btn" href="{% url 'campsites_delete' campsite.id %}">Delete</a>
+        </div>
     </div>
+    <div class="trail">
+        <h3>Nearby Trails</h3>
+        {% for trail in campsite.trail_set.all %}
+            <p>{{ trail.name }} | {{ trail.length }}</p>
+        {% endfor %}
+        <form action="{% url 'add_trail' campsite.id %}" method="POST">
+            {% csrf_token %}
+            {{ trail_form.as_p }}
+            <input type="submit" class="btn" value="Add a Trail">
+        </form>
+    </div>
+    {% comment %} <a href="{% url 'add_amenity' campsite.id %}">Add Amenity</a> {% endcomment %}
+
     <div class="amenities">
       <h3>Amenities</h3>
       {% if campsite.amenities.count %}
@@ -70,9 +67,8 @@
             </span>
           {% endfor %}
         {% else %}
-          <h5>{{campsite.name}} Already Has All Available Amenities</h5>
-        {% endif %}
-        
+          <h5>{{campsite.name}} already has all available amenities. <a href="{% url 'amenities_index' %}" style="color:#47C67A">Add more!</a></h5>
+        {% endif %}     
     </div>
     <a href="{% url 'index' %}">Back to All Campsites</a>
 </div>
