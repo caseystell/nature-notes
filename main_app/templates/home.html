@@ -4,7 +4,7 @@
 {% load static %}
 
 <div id="home-page">
-    <img id="home-image" src="{% static 'images/alex-shutin-kKvQJ6rK6S4-unsplash.jpg' %}" alt="blue mountains" style="height: 75%; width: 100%;" >
+    {% comment %} <img id="home-image" src="{% static 'images/alex-shutin-kKvQJ6rK6S4-unsplash.jpg' %}" alt="blue mountains" style="height: 75%; width: 100%;" > {% endcomment %}
     {% if not user.is_authenticated %}
         <button class="login home-btn"><a href="{% url 'about' %}">Start here</a></button>
     {% else %}

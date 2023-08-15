@@ -1,9 +1,98 @@
 body {
     height: 100vh;
-    color: #575757;
+    /* color: #575757; */
     font-family: 'Khula', sans-serif;
     margin: 0;
     font-size: 1rem;
+    box-sizing: border-box;
+    background: url(../images/alex-shutin-kKvQJ6rK6S4-unsplash.jpg) no-repeat center center fixed;
+    background-size: 100% 100%;
+}
+
+.container{
+    display: flex;
+}
+
+:root{
+    --bar-width: 55px;
+    --bar-height: 7px;
+    --hamburger-gap: 5px;
+    --foreground: #3192C8;
+    --background: #333;
+    --hamburger-margin: 15px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu{
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--hamburger-margin);
+    left: var(--hamburger-margin);
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked){
+    --foreground: #575757;
+    --background: white;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input{
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+    translate: 0;
+}
+
+.sidebar {
+    transition: translate var(--animation-timing);
+    /* translate: -100%; */
+    padding: 0.5rem 1rem;
+    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: rgb(184, 221, 255);
+    color: var(--background);
+    max-width: 10rem;
+    min-height: 95.5%;
 }
 
 a, a:visited {
@@ -23,6 +112,8 @@ ul {
 #title-logo {
     font-size: 3rem;
     text-decoration: none !important;
+    text-align: center;
+
 }
 
 .btn, .login, .btn:visited, .login:visited {
@@ -160,7 +251,6 @@ a:hover, .btn:hover, .login:hover {
     color: #575757;
     left: 50%;
     font-weight: lighter;
-    top: 57%;
     transform: translate(-50%, -50%);
     width: fit-content;
     height: fit-content;
@@ -174,13 +264,15 @@ a:hover, .btn:hover, .login:hover {
     font-size: 12px;
     background-color: #47C67A;
     color: white;
-    margin-top: 1rem;
+    padding-top: 1rem;
+    margin-top: 45%;
 }
 
 #about {
     text-align: center;
-    margin: 5rem 5rem 0 5rem;
+    /* margin: 5rem 5rem 0 5rem; */
     padding: 1rem;
+    background: #C3D5E3;
 }
 
 #about > h3, #about > p {
