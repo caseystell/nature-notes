@@ -86,7 +86,7 @@ body {
 
 .sidebar {
     transition: translate var(--animation-timing);
-    translate: -100%;
+    /* translate: -100%; */
     padding: 0.5rem 1rem;
     padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
     background-color: rgb(184, 221, 255);
@@ -104,10 +104,10 @@ ul {
     list-style-type: none;
 }
 
-/* #header-bar {
+#header-bar {
     display: flex;
     justify-content: space-around;
-} */
+}
 
 #title-logo {
     font-size: 3rem;
