@@ -4,7 +4,7 @@ from .models import Trail, Amenity
 class TrailForm(ModelForm):
   class Meta:
     model = Trail
-    fields = ['name', 'length', 'description']
+    fields = ['name', 'length']
 
 class AmenityForm(ModelForm):
   class Meta:
