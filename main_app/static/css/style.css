@@ -14,11 +14,11 @@ body {
 }
 
 :root{
-    --bar-width: 60px;
-    --bar-height: 8px;
-    --hamburger-gap: 6px;
-    --foreground: #208df3;
-    --background: white;
+    --bar-width: 55px;
+    --bar-height: 7px;
+    --hamburger-gap: 5px;
+    --foreground: #3192C8;
+    --background: #333;
     --hamburger-margin: 15px;
     --animation-timing: 200ms ease-in-out;
     --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
@@ -34,8 +34,13 @@ body {
     position: absolute;
     top: var(--hamburger-margin);
     left: var(--hamburger-margin);
-    z-index: 2;
+    z-index: 9999;
     cursor: pointer;
+}
+
+.hamburger-menu:has(input:checked){
+    --foreground: #575757;
+    --background: white;
 }
 
 .hamburger-menu::before,
@@ -47,7 +52,7 @@ body {
     background-color: var(--foreground);
     border-radius: 9999px;
     transform-origin: left center;
-    transition: opactiy var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background-color var(--animation-timing);
+    transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing), background-color var(--animation-timing);
 }
 
 .hamburger-menu input {
@@ -75,13 +80,19 @@ body {
     width: 0;
 }
 
+.hamburger-menu:has(input:checked) + .sidebar {
+    translate: 0;
+}
+
 .sidebar {
-    /* translate: -100%; */
+    transition: translate var(--animation-timing);
+    translate: -100%;
+    padding: 0.5rem 1rem;
     padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
-    background-color: var(--foreground);
+    background-color: rgb(184, 221, 255);
     color: var(--background);
     max-width: 10rem;
-    min-height: 100vh;
+    min-height: 95.5%;
 }
 
 a, a:visited {
@@ -226,16 +237,15 @@ a:hover, .btn:hover, .login:hover {
 }
 
 .home-btn {
-    /* position: absolute;
+    position: absolute;
     text-align: center;
     color: #575757;
     left: 50%;
     font-weight: lighter;
-    top: 57%;
     transform: translate(-50%, -50%);
     width: fit-content;
     height: fit-content;
-    font-size: 1.5rem; */
+    font-size: 1.5rem;
 }
 
 #footer {
@@ -246,6 +256,7 @@ a:hover, .btn:hover, .login:hover {
     background-color: #47C67A;
     color: white;
     padding-top: 1rem;
+    margin-top: 45%;
 }
 
 #about {
