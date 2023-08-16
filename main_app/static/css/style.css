@@ -401,7 +401,7 @@ a:hover, .btn:hover, .login:hover {
 }
 
 #index-photo {
-    border-radius: 15%;
+    border-radius: 15px;
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
     margin-bottom: -0.7rem;

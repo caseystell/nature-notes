@@ -79,7 +79,7 @@ class AmenityCreate(LoginRequiredMixin, CreateView):
 
 
 class AmenityDelete(LoginRequiredMixin, DeleteView):
-   model= Amenity
+   model = Amenity
    success_url = '/amenities'
 
 
