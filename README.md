@@ -3,7 +3,7 @@ NatureNotes is a collaborative project developed by a team of three outdoor enth
 
 
 
-Features:
+<h2>Features:</h2>
 
 User Accounts: Create your own account to access personalized campsite management. Log in securely to your account and keep track of your favorite camping destinations.
 
@@ -15,7 +15,7 @@ Explore Nearby Trails: Discover nature by exploring nearby trails associated wit
 
 
 
-Technologies Used:
+<h2>Technologies Used:</h2>
 
 Front-End: HTML, CSS, JavaScript
 
@@ -31,5 +31,5 @@ Version Control: Git, GitHub
 
 Deployment: Neon, Render, AWS
 
-Getting Started:
+<h2>Getting Started:</h2>
 
