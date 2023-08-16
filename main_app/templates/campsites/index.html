@@ -19,8 +19,10 @@
                             <img id="placeholder-photo" src="{% static 'images/take-more-photos.png' %}" style="width:12rem; height:10rem;">
                         {% endfor %}
                     </p>
-                    <p><span class="card-title">{{ campsite.name }}</span> | {{ campsite.location }}</p>
-                    <p class="description">{{ campsite.description }}</p>
+                    <div class="card-text">
+                        <p><span class="card-title">{{ campsite.name }}</span> | {{ campsite.location }}</p>
+                        <p class="description">{{ campsite.description }}</p>
+                    </div>
                 </div>
             </a>
         {% endfor %}

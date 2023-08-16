@@ -4,14 +4,14 @@
 <div class="amenity-detail">
 
   <h1>Amenity List</h1>
-
+  <div>
   {% for amenity in amenity_list %}
     <span>
-      {{ amenity.name }} 
+      {{ amenity.name }}  
       <a href="{% url 'amenities_delete' amenity.id %}">x</a>
     </span>
   {% endfor %}
-
+  </div>
   <a class="btn" href="{% url 'amenities_create' %}">Add New Amenity</a>
 
 </div>
