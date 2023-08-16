@@ -323,7 +323,11 @@ a:hover, .btn:hover, .login:hover {
 
 .logo  {
     font-family: 'Montserrat Subrayada', sans-serif;
-    padding-left: 145%;
+    padding-left: 150%;
+}
+
+.logoabout  {
+    font-family: 'Montserrat Subrayada', sans-serif;
 }
 
 .text {
