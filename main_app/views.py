@@ -1,6 +1,6 @@
 import os
 import uuid
-# import boto3
+import boto3
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -11,20 +11,24 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Campsite, Amenity, Photo
 from .forms import TrailForm, AmenityForm
 
+
 def home(request):
     return render(request, 'home.html')
+
 
 def about(request):
     return render(request, 'about.html')
 
-# @login_required
+
+@login_required
 def campsites_index(request):
     campsites = Campsite.objects.filter(user=request.user)
     return render(request, 'campsites/index.html', 
         {'campsites': campsites
     })
 
-# @login_required
+
+@login_required
 def campsites_detail(request, campsite_id):
     campsite = Campsite.objects.get(id=campsite_id)
     id_list = campsite.amenities.all().values_list('id')
@@ -35,7 +39,7 @@ def campsites_detail(request, campsite_id):
     })
 
 
-class CampsiteCreate(CreateView):
+class CampsiteCreate(LoginRequiredMixin, CreateView):
     model = Campsite
     fields = ['name', 'location', 'description']
 
@@ -44,17 +48,17 @@ class CampsiteCreate(CreateView):
         return super().form_valid(form)
 
 
-class CampsiteUpdate(UpdateView):
+class CampsiteUpdate(LoginRequiredMixin, UpdateView):
     model = Campsite
     fields = ['location', 'description']
 
 
-class CampsiteDelete(DeleteView):
+class CampsiteDelete(LoginRequiredMixin, DeleteView):
     model = Campsite
     success_url = '/campsites'
 
 
-# @login_required
+@login_required
 def add_trail(request, campsite_id):
     form = TrailForm(request.POST)
     if form.is_valid():
@@ -63,72 +67,49 @@ def add_trail(request, campsite_id):
         new_trail.save()
     return redirect('detail', campsite_id=campsite_id)
 
-class AmenityList(ListView):
+
+class AmenityList(LoginRequiredMixin, ListView):
    model = Amenity
 
-class AmenityDetail(DetailView):
-   model = Amenity
-   
 
-class AmenityCreate(CreateView):
+class AmenityCreate(LoginRequiredMixin, CreateView):
    model = Amenity
    fields = '__all__'
+   success_url = '/amenities'
 
-class AmenityUpdate(UpdateView):
-   model = Amenity
-   fields = '__all__'
 
-class AmenityDelete(DeleteView):
+class AmenityDelete(LoginRequiredMixin, DeleteView):
    model= Amenity
    success_url = '/amenities'
 
+
+@login_required
 def add_amenity(request, campsite_id, amenity_id):
    Campsite.objects.get(id=campsite_id).amenities.add(amenity_id)
    return redirect('detail', campsite_id=campsite_id)
 
+
+@login_required
 def remove_amenity(request, campsite_id, amenity_id):
    Campsite.objects.get(id=campsite_id).amenities.remove(amenity_id)
    return redirect('detail', campsite_id=campsite_id)
    
 
-
-
-
-
-
-
-# def add_amenity(request, campsite_id):
-#     campsite = Campsite.objects.get(id=campsite_id)
-    
-#     if request.method == 'POST':
-#         form = AmenityForm(request.POST)
-#         if form.is_valid():
-#             amenity = form.save(commit=False)
-#             amenity.campsite = campsite
-#             amenity.save()
-#             return redirect('detail', campsite_id=campsite_id)
-#     else:
-#         form = AmenityForm()
-#     return render(request, 'campsites/add_amenity.html', {'form': form, 'campsite': campsite})
-
-
-
-
-# # @login_required
-# def add_photo(request, campsite_id):
-#   photo_file = request.FILES.get('photo-file', None)
-#   if photo_file:
-#     s3 = boto3.client('s3')
-#     key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
-#     try:
-#       bucket = os.environ['S3_BUCKET']
-#       s3.upload_fileobj(photo_file, bucket, key)
-#       url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
-#       Photo.objects.create(url=url, campsite_id=campsite_id)
-#     except Exception as e:
-#       print('An error occurred uploading file to S3')
-#       print(e)
-#   return redirect('detail', campsite_id=campsite_id)
+@login_required
+def add_photo(request, campsite_id):
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+    try:
+      bucket = os.environ['S3_BUCKET']
+      s3.upload_fileobj(photo_file, bucket, key)
+      url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+      Photo.objects.create(url=url, campsite_id=campsite_id)
+    except Exception as e:
+      print('An error occurred uploading file to S3')
+      print(e)
+  return redirect('detail', campsite_id=campsite_id)
 
 
 def signup(request):

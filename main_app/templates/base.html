@@ -12,38 +12,33 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul id="header-bar">
-                <li class="unfold">Hamburger Menu</li>
-                    <ul>
-                        <li><a href="{% url 'about' %}">About</a></li>
-                        {% if user.is_authenticated %}
-                        <li class="unfold"><a href="/campsites">Campsites</a></li>
-                            <ul>
-                                <li><a href="{% url 'index' %}">My Campsites</a></li>
-                                <li><a href="{% url 'campsites_create' %}">Add a Campsite</a></li>
-                            </ul>
-                        <li class="unfold"><a href="/amenities">Amenities</a></li>
-                            <ul>
-                                <li><a href="{% url 'amenities_index' %}">All Amenities</a></li>
-                                <li><a href="{% url 'amenities_create' %}">Add an Amenity</a></li>
-                            </ul>
-                        {% endif %}
-                    </ul>
-                <li id="title-logo" class="logo"><a href="{% url 'home' %}">NatureNotes</a></li>
-            {% if not user.is_authenticated %}
-                <li class="btn"><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li class="login"><a href="{% url 'login' %}">Log In</a></li>
-            {% else %}
-                <li class="login"><a href="{% url 'logout' %}">Log Out</a></li>
-            {% endif %}
-            </ul>
-        </nav>
-    </header>
     <main>
-        {% block content %}
-        {% endblock %}
+        <div class="container">
+            <div>   
+                <label class="hamburger-menu">
+                    <input type="checkbox">
+                </label>             
+                <aside class="sidebar">
+                    <div><a href="{% url 'about' %}">About</a></div>
+                    {% if user.is_authenticated %}
+                        <div><a href="{% url 'index' %}">My Campsites</a></div>
+                        <div><a href="{% url 'campsites_create' %}">Add a Campsite</a></div>
+                        <div><a href="{% url 'amenities_index' %}">All Amenities</a></div>
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                        <div class="btn"><a href="{% url 'signup' %}">Sign Up</a></div>
+                        <div class="login"><a href="{% url 'login' %}">Log In</a></div>
+                    {% else %}
+                        <div class="login"><a href="{% url 'logout' %}">Log Out</a></div>
+                    {% endif %}
+                </aside>
+            </div> 
+            <div>
+                <h1 id="title-logo" class="logo"><a href="{% url 'home' %}">NatureNotes</a></h1>
+            </div>
+        </div>
+       {% block content %}
+       {% endblock %}
     </main>
     <footer id="footer">Created by ACS Designs 2023</footer>
 </body>
