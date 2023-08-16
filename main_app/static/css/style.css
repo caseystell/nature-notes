@@ -266,11 +266,10 @@ a:hover, .btn:hover, .login:hover {
 
 #detail-card {
     text-align: right;
-    grid-column: 1;
-    grid-row: 1;
 }
 
 .campsite-info {
+    display: flex;
     grid-column: 1 / span 2;
     grid-row: 2;
 }
@@ -383,9 +382,10 @@ a:hover, .btn:hover, .login:hover {
 }
 
 .photo {
+    display: inline-block;
     height: 100%;
     width: 12rem;
-    margin: 0;
+    margin-top: 1.5rem;
 }
 
 #index-card {
