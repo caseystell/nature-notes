@@ -14,7 +14,10 @@
 <body>
     <main>
         <div class="container">
-            <div>                
+            <div>   
+                <label class="hamburger-menu">
+                    <input type="checkbox">
+                </label>             
                 <aside class="sidebar">
                     <div><a href="{% url 'about' %}">About</a></div>
                     {% if user.is_authenticated %}
@@ -32,9 +35,6 @@
             </div> 
             <div>
                 <h1 id="title-logo" class="logo"><a href="{% url 'home' %}">NatureNotes</a></h1>
-                <label class="hamburger-menu">
-                    <input type="checkbox">
-                </label>
             </div>
         </div>
        {% block content %}
