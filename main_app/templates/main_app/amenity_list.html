@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Amenity List</h1>
+<div class="amenity-detail">
 
-{% for amenity in amenity_list %}
-  <a href="{% url 'amenities_detail' amenity.id %}">
-    <div>
-        <div>
-            <span>{{ amenity.name }}</span>
-        </div>
-    </div>
-  </a>
-{% endfor %}
+  <h1>Amenity List</h1>
+  <div>
+  {% for amenity in amenity_list %}
+    <span>
+      {{ amenity.name }}  
+      <a href="{% url 'amenities_delete' amenity.id %}">x</a>
+    </span>
+  {% endfor %}
+  </div>
+  <a class="btn" href="{% url 'amenities_create' %}">Add New Amenity</a>
+
+</div>
 
 {% endblock %}

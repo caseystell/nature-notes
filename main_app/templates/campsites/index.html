@@ -1,18 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>My Campsites</h1>
+{% load static %}
 
-{% for campsite in campsites %}
-    <a href="{% url 'detail' campsite.id %}">
-        <div class="card">
-            <div class="card-content">
-                <p class="photo"></p>
-                <p><span class="card-title">{{ campsite.name }}</span> | {{ campsite.location }}</p>
-                <p>{{ campsite.description|linebreaks }}</p>
-            </div>
-        </div>
-    </a>
-{% endfor %}
+<div id="index">
+    <img id="index-image" src="{% static 'images/mattias-helge-CAk3Rl75CD8-unsplash.jpg' %}" alt="tent in a field" style="height: 100%; width: 100%;" >
+
+    <div class="text">
+        <h1>My Campsites</h1>
+
+        {% for campsite in campsites %}
+            <a href="{% url 'detail' campsite.id %}">
+                <div class="card" id="index-card">
+                    <p>
+                        {% for photo in campsite.photo_set.all %}
+                            <img id="index-photo" src="{{photo.url}}">
+                        {% empty %}
+                            <img id="placeholder-photo" src="{% static 'images/take-more-photos.png' %}" style="width:12rem; height:10rem;">
+                        {% endfor %}
+                    </p>
+                    <div class="card-text">
+                        <p><span class="card-title">{{ campsite.name }}</span> | {{ campsite.location }}</p>
+                        <p class="description">{{ campsite.description }}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+</div>
 
 {% endblock %}

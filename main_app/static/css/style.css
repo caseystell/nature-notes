@@ -4,54 +4,277 @@ body {
     font-family: 'Khula', sans-serif;
     margin: 0;
     font-size: 1rem;
+    box-sizing: border-box;
 }
+
+.container{
+    display: flex;
+}
+
+:root{
+    --bar-width: 55px;
+    --bar-height: 7px;
+    --hamburger-gap: 5px;
+    --foreground: #3192C8;
+    --background: #333;
+    --hamburger-margin: 15px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: var(--hamburger-margin);
+    left: var(--hamburger-margin);
+    z-index: 2;
+    cursor: pointer;
+  }
+
+.hamburger-menu:has(input:checked){
+    --foreground: #575757;
+    --background: white;
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+  border: 1px solid var(--background);
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input{
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+    rotate var(--animation-timing), translate var(--animation-timing),
+    background-color var(--animation-timing);
+}
+
+.hamburger-menu input {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before {
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+.sidebar {
+    transition: translate var(--animation-timing);
+    translate: -100%;
+    padding: 0.5rem 1rem;
+    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: rgb(184, 221, 255);
+    color: var(--background);
+    max-width: 10rem;
+    min-height: 95.5%;
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+    translate: 0;
+  }
+
 
 a, a:visited {
     text-decoration: none;
     color: #575757;
 }
 
-a:hover, .btn:hover, .login:hover {
-    cursor: pointer;
-}
-
-ul {
-    list-style-type: none;
-}
-
-#header {
-    display: flex;
-    justify-content: space-around;
-}
-
 #title-logo {
-    font-family: 'Montserrat Subrayada', sans-serif;
     font-size: 3rem;
+    text-decoration: none;
+    text-align: center;
+    margin-left: 2rem;
 }
 
 .btn, .login, .btn:visited, .login:visited {
-    border-radius: 20%;
+    border-radius: 15px;
     color: white;
     font-family: 'Khula', sans-serif;
-    padding: 0.5rem;
+    padding: 0.5rem !important;
     border: none;
+    width: fit-content !important;
+    height: fit-content !important;
 }
 
 .btn {
-    background-color: #47C67A;
+    background-color: #47C67A !important;
+}
+
+a:hover, .btn:hover, .login:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#title-logo:hover {
+    text-decoration: none !important;
 }
 
 .login {
     background-color: #BDD6EB;
 }
 
-.detail {
+.detail, .delete-form, .edit-add-form, .amenity-detail, #login-form, #signup-form {
     background-color: #BDD6EB;
     margin: 1rem 0 3rem 0;
     padding: 1rem 3rem 3rem 3rem;
 }
 
-.home-page {
+.amenity-detail > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.edit-add-form td > input, #login-form p > input, #signup-form p > input {
+    border: none;
+    border-radius: 15px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    width: 15rem;
+    font-family: 'Khula', sans-serif;
+    color: #575757;
+    font-size: 1rem;
+}
+
+.detail {
+    display: grid;
+    grid-template-columns: 20% 40% 20% 20%;
+    grid-template-rows: 15% 35% 50%;
+}
+
+.detail > h1 {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+}
+
+.amenities > span, .add-amenities > span, .amenity-detail span {
+    border-radius: 15px;
+    padding: 0.5rem 0.5rem 0.5rem 0.8rem;
+    margin: 0.3rem;
+    width: fit-content;
+    height: fit-content;
+}
+
+.amenities > span {
+    background-color: #E9E9E9;
+}
+
+.add-amenities > span, .amenity-detail span {
+    background-color: white;
+}
+
+.amenities button, .add-amenities button, .amenity-detail a {
+    color: #575757;
+    border: none;
+}
+
+.amenity-detail a {
+    padding: 1px 6px;
+    margin: 0px 4px;
+}
+
+.amenity-detail > a {
+    display: block;
+    margin-top: 1rem;
+    margin-left: 45%;
+}
+
+.amenities button {
+    background-color: #E9E9E9;
+}
+
+.add-amenities button {
+    background-color: white;
+}
+
+.amenities button:hover, .add-amenities button:hover, .amenity-detail a:hover {
+    cursor: pointer;
+    background-color: #575757;
+    border-radius: 15px;
+}
+
+.amenities button:hover {
+    color: #E9E9E9;
+}
+
+.add-amenities button:hover, .amenity-detail a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.amenity-detail > a:hover {
+    text-decoration: underline;
+}
+
+.amenities, .add-amenities {
+    grid-row: 2 / span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+}
+
+.amenities {
+    grid-column: 3;
+}
+
+.add-amenities {
+    grid-column: 4;
+}
+
+.amenities > h3, .add-amenities > h3 {
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+}
+
+.amenities > h5, .add-amenities > h5 {
+    text-align: right;
+}
+
+.trail {
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 2;
+}
+
+#detail-card {
+    text-align: right;
+}
+
+.campsite-info {
+    display: flex;
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+#home-page, #index {
     position: relative;
 }
 
@@ -60,10 +283,133 @@ ul {
     text-align: center;
     color: #575757;
     left: 50%;
+    top: 60%;
     font-weight: lighter;
-    top: 57%;
     transform: translate(-50%, -50%);
     width: fit-content;
-    height: 3rem;
+    height: fit-content;
     font-size: 1.5rem;
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    background-color: #47C67A;
+    color: white;
+    padding: 0.25rem;
+}
+
+#about {
+    text-align: center;
+    padding: 1rem;
+    background: #C3D5E3;
+}
+
+#about > h3, #about > p {
+    padding: 1rem;
+    margin: 1rem 2rem;
+    font-size: 1.25rem;
+}
+
+#about > h3 {
+    font-size: 1.75rem;
+    color: #47C67A;
+}
+
+.logo  {
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+.text {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    background-color: #BDD6EB;
+    border-radius: 15px;
+    width: fit-content;
+    height: fit-content;
+    text-align: left;
+    padding: 1rem;
+}
+
+.card-title {
+    font-weight: bolder;
+}
+
+.card-text {
+    margin-left: 2rem;
+}
+
+.description {
+    font-size: 0.9rem;
+}
+
+#login-form, #signup-form {
+    padding: 1rem;
+    text-align: center;
+}
+
+#login-form p > a, #signup-form p > a, .detail > a {
+    color: #47C67A;
+}
+
+.detail > a {
+    text-align: right;
+    grid-column: 4 / span 1;
+    grid-row: -2 / span 1;
+    align-self: end;
+    margin-top: 1.5rem;
+}
+
+#signup-form p {
+    text-align: left;
+    margin-left: 32%;
+}
+
+.helptext {
+    visibility: hidden;
+}
+
+#signup-form ul li {
+    visibility: hidden;
+}
+
+.photo {
+    display: inline-block;
+    height: 100%;
+    width: 12rem;
+    margin-top: 1.5rem;
+}
+
+#index-card {
+    display: grid;
+    grid-template-columns: 33% 67%;
+    grid-template-rows: 40% 60%;
+    margin: 1rem;
+    width: 38rem;
+}
+
+#index-photo {
+    border-radius: 15%;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+    margin-bottom: -0.7rem;
+}
+
+#user-campsite-photo, #placeholder-photo {
+    width: 14rem;
+    max-width: 100%;
+    border-radius: 15px;
+    margin: 0;
+}
+
+#placeholder-photo {
+    margin-bottom: -0.7rem;
 }
