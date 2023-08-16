@@ -9,6 +9,8 @@ body {
 
 .container{
     display: flex;
+    background-color: #BDD6EB;
+    color: #BDD6EB;
 }
 
 :root{
@@ -94,7 +96,8 @@ body {
     background-color: rgb(184, 221, 255);
     color: var(--background);
     max-width: 10rem;
-    min-height: 95.5%;
+    min-height: 8rem;
+    border-radius: 10px;
 }
 
 .hamburger-menu:has(input:checked) + .sidebar {
@@ -143,7 +146,7 @@ a:hover, .btn:hover, .login:hover {
 
 .detail, .delete-form, .edit-add-form, .amenity-detail, #login-form, #signup-form {
     background-color: #BDD6EB;
-    margin: 1rem 0 3rem 0;
+    /* margin: 1rem 0 3rem 0; */
     padding: 1rem 3rem 3rem 3rem;
 }
 
@@ -320,6 +323,7 @@ a:hover, .btn:hover, .login:hover {
 
 .logo  {
     font-family: 'Montserrat Subrayada', sans-serif;
+    padding-left: 145%;
 }
 
 .text {
