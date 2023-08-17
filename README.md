@@ -6,8 +6,6 @@ NatureNotes is a collaborative project developed by a team of three outdoor enth
 
 ![image](https://github.com/Steverobles/nature-notes/assets/126551900/44e36ce3-2198-4d90-8f2a-d031a54fc903)
 
-![image](https://github.com/Steverobles/nature-notes/assets/126551900/eb3ed372-a002-452f-a747-013d8264ea93)
-
 
 <h2>Features:</h2>
 
@@ -39,12 +37,14 @@ Deployment: Neon, Render, AWS
 
 <h2>Getting Started:</h2>
 
+
 <p>Deployment: </p>
 
 <p>Trello board: https://trello.com/b/ULPTBoaB/ga-project-3-naturenotes</p>
 
 
 <p>Pitch Deck:https://docs.google.com/presentation/d/1jkcDqFjO5K0f6vV-8kWVxt2z0CqLg4MGlbvHZHY2psU/edit#slide=id.gcb9a0b074_1_0</p>
+
 
 
 <h2>Icebox Items</h2>
