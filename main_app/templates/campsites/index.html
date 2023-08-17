@@ -4,8 +4,6 @@
 {% load static %}
 
 <div id="index">
-    <img id="index-image" src="{% static 'images/mattias-helge-CAk3Rl75CD8-unsplash.jpg' %}" alt="tent in a field" style="height: 100%; width: 100%;" >
-
     <div class="text">
         <h1>My Campsites</h1>
 
@@ -25,7 +23,10 @@
                     </div>
                 </div>
             </a>
+        {% empty %}
+            <p id="no-campsites">You have no campsites. <a href="{% url 'campsites_create' %}">Add some!</a></p>
         {% endfor %}
+        <a id="add-campsite" href="{% url 'campsites_create' %}">+ Add</a>
     </div>
 
 </div>
