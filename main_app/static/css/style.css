@@ -285,7 +285,7 @@ a:hover, .btn:hover, .login:hover {
     font-size: 1.5rem;
 }
 
-#no-campsites > a, #add-campsite {
+#add-campsite {
     color: #47C67A;
 }
 
@@ -434,6 +434,8 @@ a:hover, .btn:hover, .login:hover {
     grid-column: 1 / span 1;
     grid-row: 1 / span 2;
     margin-bottom: -0.7rem;
+    width: 14rem;
+    max-width: 100%;
 }
 
 #user-campsite-photo, #placeholder-photo {

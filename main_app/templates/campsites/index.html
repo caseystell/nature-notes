@@ -24,7 +24,7 @@
                 </div>
             </a>
         {% empty %}
-            <p id="no-campsites">You have no campsites. <a href="{% url 'campsites_create' %}">Add some!</a></p>
+            <p id="no-campsites">You have no campsites.</p>
         {% endfor %}
         <a id="add-campsite" href="{% url 'campsites_create' %}">+ Add</a>
     </div>
