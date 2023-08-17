@@ -10,7 +10,7 @@ body {
 .container {
     display: flex;
     background-color: #E9E9E9;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 :root {
@@ -90,7 +90,7 @@ body {
 
 .sidebar {
     transition: translate var(--animation-timing);
-    translate: -280%;
+    translate: -100%;
     padding: 0.5rem 1rem;
     padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
     background-color: #FFFFFF;
@@ -100,7 +100,7 @@ body {
 }
 
 .hamburger-menu:has(input:checked) + .sidebar {
-    translate: -180%;
+    translate: 0%;
 }
 
 a, a:visited {
@@ -111,7 +111,7 @@ a, a:visited {
 #title-logo {
     font-size: 3.5rem;
     text-decoration: none;
-    margin-right: 7rem;
+    /* margin-right: 7rem; */
 }
 
 .btn, .login, .btn:visited, .login:visited {
