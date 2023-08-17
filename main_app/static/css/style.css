@@ -10,7 +10,6 @@ body {
 .container {
     display: flex;
     background-color: #E9E9E9;
-    /* justify-content: center; */
 }
 
 :root {
@@ -111,7 +110,6 @@ a, a:visited {
 #title-logo {
     font-size: 3.5rem;
     text-decoration: none;
-    /* margin-right: 7rem; */
 }
 
 .btn, .login, .btn:visited, .login:visited {
