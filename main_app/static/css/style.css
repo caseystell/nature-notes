@@ -90,17 +90,17 @@ body {
 
 .sidebar {
     transition: translate var(--animation-timing);
-    translate: -300%;
+    translate: -280%;
     padding: 0.5rem 1rem;
     padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
     background-color: #FFFFFF;
     color: var(--background);
-    max-width: 13rem ;
+    max-width: 10rem;
     min-height: 8rem;
 }
 
 .hamburger-menu:has(input:checked) + .sidebar {
-    translate: -200%;
+    translate: -180%;
 }
 
 a, a:visited {
