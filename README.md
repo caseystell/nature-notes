@@ -1,4 +1,4 @@
-# Nature-Notes
+# NatureNotes
 NatureNotes is a collaborative project developed by a team of three outdoor enthusiasts. Our website is designed to make your camping experience more enjoyable and organized. Whether you're an avid camper or just starting out, NatureNotes offers a user-friendly platform to create and manage your personalized list of campsites completed with amenities and nearby hiking trails.
 ![image](https://github.com/Steverobles/nature-notes/assets/126551900/27095cb0-3af4-409c-a608-23503519fc44)
 
@@ -17,7 +17,6 @@ Amenities Checklist: Customize your campsite profile by selecting from a variety
 Explore Nearby Trails: Discover nature by exploring nearby trails associated with each campsite. Add your favorite hikes, and memorable moments to your profile.
 
 
-
 <h2>Technologies Used:</h2>
 
 Front-End: HTML, CSS, JavaScript
@@ -34,21 +33,22 @@ Version Control: Git, GitHub
 
 Deployment: Neon, Render, AWS
 
+
 <h2>Getting Started:</h2>
 
-
-<p>Deployment: </p>
+<p>Deployment: https://nature-notes.onrender.com/</p>
 
 <p>Trello board: https://trello.com/b/ULPTBoaB/ga-project-3-naturenotes</p>
 
-
-<p>Pitch Deck:https://docs.google.com/presentation/d/1jkcDqFjO5K0f6vV-8kWVxt2z0CqLg4MGlbvHZHY2psU/edit#slide=id.gcb9a0b074_1_0</p>
-
+<p>Pitch Deck: https://docs.google.com/presentation/d/1jkcDqFjO5K0f6vV-8kWVxt2z0CqLg4MGlbvHZHY2psU/edit#slide=id.gcb9a0b074_1_0</p>
 
 
 <h2>Icebox Items</h2>
+
 <p>AutoFill API</p>
 <p>Drop Down State Option</p>
 <p>Add mulitple photos/delete</p>
 <p>edit/delete trail details</p>
 <p>Map API</p>
+
+
