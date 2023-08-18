@@ -4,8 +4,7 @@ NatureNotes is a collaborative project developed by a team of three outdoor enth
 
 ![image](https://github.com/Steverobles/nature-notes/assets/126551900/b71f95b6-6760-450a-aaac-27e03c8b37af)
 
-![image](https://github.com/Steverobles/nature-notes/assets/126551900/44e36ce3-2198-4d90-8f2a-d031a54fc903)
-
+![image](https://github.com/Steverobles/nature-notes/assets/126551900/d2319787-6788-43af-9227-e64c302f7125)
 
 <h2>Features:</h2>
 
@@ -48,3 +47,8 @@ Deployment: Neon, Render, AWS
 
 
 <h2>Icebox Items</h2>
+<p>AutoFill API</p>
+<p>Drop Down State Option</p>
+<p>Add mulitple photos/delete</p>
+<p>edit/delete trail details</p>
+<p>Map API</p>
