@@ -45,10 +45,9 @@ Deployment: Neon, Render, AWS
 
 <h2>Icebox Items</h2>
 
-<p>AutoFill API</p>
-<p>Drop Down State Option</p>
-<p>Add mulitple photos/delete</p>
-<p>edit/delete trail details</p>
-<p>Map API</p>
+<p>Users can input a location into the location field on the campsite page, and it will auto-populate a city and state location.</p>
+<p>Users can add multiple photos to each campsite, as well as delete old photos.</p>
+<p>Users can edit or delete trails added to a campsite.</p>
+<p>Users can click a map link on each campsite page that will bring up a map, showing the location of the campsite.</p>
 
 
