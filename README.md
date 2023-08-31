@@ -1,53 +1,82 @@
-# NatureNotes
-NatureNotes is a collaborative project developed by a team of three outdoor enthusiasts. Our website is designed to make your camping experience more enjoyable and organized. Whether you're an avid camper or just starting out, NatureNotes offers a user-friendly platform to create and manage your personalized list of campsites completed with amenities and nearby hiking trails.
-![image](https://github.com/Steverobles/nature-notes/assets/126551900/27095cb0-3af4-409c-a608-23503519fc44)
+<a name="readme-top"></a>
 
-![image](https://github.com/Steverobles/nature-notes/assets/126551900/b71f95b6-6760-450a-aaac-27e03c8b37af)
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
 
-![image](https://github.com/Steverobles/nature-notes/assets/126551900/d2319787-6788-43af-9227-e64c302f7125)
+<img src="./main_app/static/images/Nature-Notes-header.png" alt="NatureNotes" height="100" width="650"/>
 
-<h2>Features:</h2>
+<h2 align="center">
+    <a href="https://nature-notes.onrender.com/" target="_blank" rel="noopener noreferrer" >NatureNotes</a>
+</h2>
 
-User Accounts: Create your own account to access personalized campsite management. Log in securely to your account and keep track of your favorite camping destinations.
+  <p align="center">
+    NatureNotes is a collaborative project developed by a team of three outdoor enthusiasts. Our website is designed to make your camping experience more enjoyable and organized. Whether you're an avid camper or just starting out, NatureNotes offers a user-friendly platform to create and manage your personalized list of campsites completed with amenities and nearby hiking trails.
+  </p>
+</div>
 
-Campsite Collection: Add new campsites to your account. Include details such as location, and a brief description to help you remember the unique features of each site.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#project-features">Project Features</a>
+      <ul>
+        <li><a href="#app-images">App Images</a></li>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#next-steps">Next Steps</li>
+  </ol>
+</details>
 
-Amenities Checklist: Customize your campsite profile by selecting from a variety of amenities available at each location. Mark the amenities you care about, ensuring that your camping experience aligns with your preferences.
-
-Explore Nearby Trails: Discover nature by exploring nearby trails associated with each campsite. Add your favorite hikes, and memorable moments to your profile.
-
-
-<h2>Technologies Used:</h2>
-
-Front-End: HTML, CSS, JavaScript
-
-Back-End: Python, Django
-
-Database: PostgreSQL
-
-Authentication: Django Allauth
-
-ORM: Django ORM
-
-Version Control: Git, GitHub
-
-Deployment: Neon, Render, AWS
-
-
-<h2>Getting Started:</h2>
-
-<p>Deployment: https://nature-notes.onrender.com/</p>
-
-<p>Trello board: https://trello.com/b/ULPTBoaB/ga-project-3-naturenotes</p>
-
-<p>Pitch Deck: https://docs.google.com/presentation/d/1jkcDqFjO5K0f6vV-8kWVxt2z0CqLg4MGlbvHZHY2psU/edit#slide=id.gcb9a0b074_1_0</p>
+## Project Features
 
 
-<h2>Icebox Items</h2>
 
-<p>Users can input a location into the location field on the campsite page, and it will auto-populate a city and state location.</p>
-<p>Users can add multiple photos to each campsite, as well as delete old photos.</p>
-<p>Users can edit or delete trails added to a campsite.</p>
-<p>Users can click a map link on each campsite page that will bring up a map, showing the location of the campsite.</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## App Images
+
+<img src="./main_app/static/images/Homepage.png" alt="NatureNotes Homepage" height="450" width="650" display="inline-block"/>
+<img src="./main_app/static/images/Campsites-Page.png" alt="Vibrant Village Campsites Page" height="450" width="650" display="inline-block"/>
+<img src="./main_app/static/images/Details-Page.png" alt="Vibrant Village Details Page" height="450" width="600" display="inline-block"/>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Built With
+
+* HTML
+* CSS
+* Python
+* Django
+* PostgreSQL
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Getting Started
+
+<h4>How to Use NatureNotes:</h4>
+<h5>Click <a href="https://nature-notes.onrender.com/" target="_blank" rel="noopener noreferrer" >here</a> to visit the site!</h5>
+<ol>
+    <li>Create your own account to access personalized campsite management. Log in securely to your account and keep track of your favorite camping destinations.</li>
+    <li>Add new campsites to your account. Include details such as location and a brief description to help you remember the unique features of each site.</li>
+    <li>Customize your campsite profile by selecting from a variety of amenities available at each location. Add new amenities as needed, ensuring that your camping experience aligns with your preferences.</li>
+    <li>Discover nature by exploring nearby trails associated with each campsite. Add your favorite hikes and memorable moments to your profile.</li> 
+</ol>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Next Steps
+
+<h4>In future versions, we hope to roll out the following features:</h4>
+<ul>
+    <li>Users can input a location into the location field on the campsite page, and it will auto-populate a city and state location.</li>
+    <li>Users can add multiple photos to each campsite, as well as delete old photos.</li>
+    <li>Users can edit or delete trails added to a campsite.</li>
+    <li>Users can click a map link on each campsite page that will bring up a map, showing the location of the campsite.</li>
+</ul>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
