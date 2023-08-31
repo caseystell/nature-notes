@@ -30,7 +30,7 @@
 
 <img src="./main_app/static/images/Homepage.png" alt="NatureNotes Homepage" height="450" width="700" display="inline-block"/>
 <img src="./main_app/static/images/Campsites-Page.png" alt="Vibrant Village Campsites Page" height="450" width="700" display="inline-block"/>
-<img src="./main_app/static/images/Details-Page.png" alt="Vibrant Village Details Page" height="450" width="750" display="inline-block"/>
+<img src="./main_app/static/images/Details-Page.png" alt="Vibrant Village Details Page" height="450" width="800" display="inline-block"/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
