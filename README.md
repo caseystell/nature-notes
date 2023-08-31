@@ -20,7 +20,6 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#project-features">Project Features</a>
       <ul>
         <li><a href="#app-images">App Images</a></li>
         <li><a href="#built-with">Built With</a></li>
@@ -31,17 +30,11 @@
   </ol>
 </details>
 
-## Project Features
-
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## App Images
 
-<img src="./main_app/static/images/Homepage.png" alt="NatureNotes Homepage" height="450" width="650" display="inline-block"/>
-<img src="./main_app/static/images/Campsites-Page.png" alt="Vibrant Village Campsites Page" height="450" width="650" display="inline-block"/>
-<img src="./main_app/static/images/Details-Page.png" alt="Vibrant Village Details Page" height="450" width="600" display="inline-block"/>
+<img src="./main_app/static/images/Homepage.png" alt="NatureNotes Homepage" height="450" width="700" display="inline-block"/>
+<img src="./main_app/static/images/Campsites-Page.png" alt="Vibrant Village Campsites Page" height="450" width="700" display="inline-block"/>
+<img src="./main_app/static/images/Details-Page.png" alt="Vibrant Village Details Page" height="450" width="700" display="inline-block"/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
